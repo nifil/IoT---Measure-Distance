@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT - Measure Distance</title>
+    <script>
+    // Fungsi async untuk mengambil jarak dari server
+    async function fetchDistance() {
+        // Mengirim permintaan ke endpoint /distance
+        const response = await fetch('/distance');
+        // Mengambil data dalam format JSON dari respons
+        const data = await response.json();
+        // Memperbarui elemen dengan id 'distance' dengan nilai jarak yang diterima
+        document.getElementById('distance').innerText = data.distance;
+    }
+
+        // Memanggil fungsi fetchDistance setiap 1 detik untuk memperbarui data jarak
+        setInterval(fetchDistance, 1000); // Update setiap 1 detik
+    </script>
+</head>
+<body>
+    <h1>IoT - Measure Distance</h1><br>
+    <!-- Menampilkan informasi -->
+    <h4>Nama : Nifil Afrisma</h4>
+    <h4>NIM : 1462100050</h4>
+    
+    <!-- Menampilkan jarak yang diambil dari server -->
+    <p>Distance: <span id="distance">Loading...</span> cm</p>
+</body>
+</html>
